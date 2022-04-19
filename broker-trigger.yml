@@ -1,0 +1,18 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  
+  namespace: poc-workshop
+  labels:
+    eventing.knative.dev/broker: my-event-broker
+spec:
+  broker: my-event-broker
+  filter:
+    attributes:
+      source: '/apis/v1/namespaces/poc-workshop/kafkasources/my-kafka-source#my-events'
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: rest-json-quickstart
+      namespace: poc-workshop
