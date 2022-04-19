@@ -1,0 +1,28 @@
+apiVersion: sources.knative.dev/v1beta1
+kind: KafkaSource
+metadata:
+  name: my-kafka-source
+ 
+  namespace: knative-eventing
+  finalizers:
+    - kafkasources.sources.knative.dev
+  labels:
+    app: kafka-source
+    app.kubernetes.io/component: kafka-source
+    app.kubernetes.io/instance: kafka-source
+    app.kubernetes.io/name: kafka-source
+    app.kubernetes.io/part-of: event-sources-app
+spec:
+  bootstrapServers:
+    - 'my-cluster-kafka-bootstrap.appdev-kafka.svc:9092'
+  consumerGroup: knative-app
+  consumers: 1
+  initialOffset: latest
+  sink:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: rest-json-quickstart
+      namespace: poc-workshop
+  topics:
+    - my-events

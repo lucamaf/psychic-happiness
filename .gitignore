@@ -76,3 +76,4 @@ eventprocess.java
 api.yaml
 rest-knative-weather/.attach_pid1325723
 rest-knative-weather/.attach_pid1346626
+.vscode/settings.json
