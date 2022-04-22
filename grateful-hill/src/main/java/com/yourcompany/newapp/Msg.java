@@ -1,8 +1,13 @@
 package com.yourcompany.newapp;
 
+import javax.ws.rs.DefaultValue;
+
 public class Msg {
+    @DefaultValue("Barcelona")
     private String city;
+    @DefaultValue("41.38")
     private String lat;
+    @DefaultValue("2.15")
     private String lon;
     private String secretKey;
 
@@ -17,7 +22,7 @@ public class Msg {
         this.lon = lon;
         this.secretKey = secretKey;
     }
-
+    
     public String getCity() {
         return this.city;
     }
