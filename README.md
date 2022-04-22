@@ -32,38 +32,54 @@ otherwise connect kafkasource to default knative broker and then create trigger 
 ## Fuse installation
 
 # First example
+
+## flow
+
+
 ## [Fuse project](https://github.com/lucamaf/psychic-happiness/tree/main/grateful-hill)
 Based on Red Hat Fuse 7.10 (Apache Camel 2.x) and SpringBoot 2
 
 ### description
 
 ### deployment on OpenShift
-using jkube plugin
+using jkube plugin to deploy:  
 `mvn  install -Popenshift`
 
 ### usage
 
-## Quarkus project
+## [Quarkus project](https://github.com/lucamaf/psychic-happiness/tree/main/rest-knative-weather)
 
 ### description
 
 ### deployment on OpenShift
-using the serverless option in application.properties
+using the serverless option in application.properties  
 `quarkus.kubernetes.deployment-target=knative`
 
-to deploy use:
+to deploy use:  
 `mvn clean package -Dquarkus.kubernetes.deploy=true`
 
 ### usage
 
 # Second example
 
-## mongodb events
+## flow
+
+## MongoDB events
 installed mongodb bitnami
 https://dev.to/tylerauerbeck/deploying-bitnami-s-postgres-helm-chart-on-openshift-1mcl
 https://github.com/bitnami/charts/tree/master/bitnami/mongodb
-built serving with event display
+with values from [here](config-resources/values.yaml)
+
 
 kamelet source mongodb
 https://camel.apache.org/camel-kamelets/0.7.x/mongodb-source.html
 tracking id option working only with capped collection (https://www.mongodb.com/docs/manual/reference/glossary/#std-term-capped-collection)
+
+### usage
+leverage mongo-ui
+
+## Knative serving
+serving with event display
+
+### usage
+check the pod logs
