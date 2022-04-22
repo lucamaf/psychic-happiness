@@ -1,6 +1,8 @@
 # Overview
-In this tutorial we will show how to build 2 simple examples of serverless enabled microservice architecture.  
-In the first one we will explore how events coming from Kafka can trigger the execution of a serveless component that based on the payload of the event, will query an external service.  
+In this tutorial we will show how to build two simple examples of serverless enabled microservice architecture.  
+
+In the first one we will explore how events coming from Kafka can trigger the execution of a serveless component that based on the payload of the event, will query an external service.
+
 In the second example we will see how variations in a NoSQL database can trigger events and be visualized.  
 
 ## Prerequisites
@@ -13,7 +15,8 @@ In the second example we will see how variations in a NoSQL database can trigger
 # Components setup
 ## AMQ Streams installation
 You first need to install AMQ Streams operator [like this]()  
-AMQ Streams as an Operator will give you access to the whole Kafka ecosystem managed in a kubernetes way  
+AMQ Streams as an Operator will give you access to the whole Kafka ecosystem managed in a kubernetes way
+
 You can then create the Kafka cluster 
 
 ### Monitoring AMQ Streams
@@ -29,7 +32,7 @@ otherwise connect kafkasource to default knative broker and then create trigger 
 ## Fuse installation
 
 # First example
-## [Fuse project](gratefull-hill)
+## [Fuse project](https://github.com/lucamaf/psychic-happiness/tree/main/grateful-hill)
 Based on Red Hat Fuse 7.10 (Apache Camel 2.x) and SpringBoot 2
 
 ### description
