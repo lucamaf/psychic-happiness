@@ -6,18 +6,30 @@ In the second example we will see how variations in a NoSQL database can trigger
 ## Prerequisites
 * having a running OpenShift cluster or CodeReady Containers (v4.6+)
 * having installed Serverless operators on the cluster [like this](https://docs.openshift.com/container-platform/4.9/serverless/install/install-serverless-operator.html)
-* having prepared the cluster for Fuse [deployments](https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html/fuse_on_openshift_guide/get-started-admin)
+* having prepared the cluster for Fuse [deployment](https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html/fuse_on_openshift_guide/get-started-admin)
+* having a working version of apache maven [v3.8.1 minimum](https://access.redhat.com/documentation/en-us/red_hat_build_of_quarkus/2.2/guide/e75e6f99-0d92-4236-bfb8-2de30a6a605d)
+* updating the maven settings to point to <span style="color:red">Red Hat</span> repository [like this](https://access.redhat.com/documentation/en-us/red_hat_build_of_quarkus/2.2/guide/e75e6f99-0d92-4236-bfb8-2de30a6a605d#_edb1ae30-5684-4d33-965e-793f06026280)
 
 # Components setup
 ## AMQ Streams installation
+You first need to install AMQ Streams operator [like this]()  
+AMQ Streams as an Operator will give you access to the whole Kafka ecosystem managed in a kubernetes way  
+You can then create the Kafka cluster 
+
+### Monitoring AMQ Streams
+
 ## Knative installation
 Knative eventing, serving and knative kafka installation in default knative namespaces
 create event source kafkasource in case of connecting directly kafkasource with serving endpoint
 otherwise connect kafkasource to default knative broker and then create trigger with filtering
+
+### Monitoring Knative
+
+
 ## Fuse installation
 
 # First example
-## Fuse project
+## [Fuse project](gratefull-hill)
 Based on Red Hat Fuse 7.10 (Apache Camel 2.x) and SpringBoot 2
 
 ### description

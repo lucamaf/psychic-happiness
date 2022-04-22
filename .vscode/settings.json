@@ -1,6 +1,7 @@
 {
     "java.project.referencedLibraries": [
-        "lib/**/*.jar"
+        "lib/**/*.jar",
+        "/home/remote/luferrar/.config/Code/User/globalStorage/redhat.vscode-camelk/java-dependencies-3.14.1/dependencies/*.jar"
     ],
     "yaml.schemas": {
         "swaggerviewer:openapi": "file:///home/remote/luferrar/Desktop/ESMA/api.yaml"
