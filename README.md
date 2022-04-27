@@ -72,29 +72,27 @@ The following is the dependency workflow
     style M fill:#0f0
     style N fill:#0f0
 ```
-
+## [Fuse project](https://github.com/lucamaf/psychic-happiness/tree/main/grateful-hill)
 
 ### description
 
-### deployment on OpenShift
-using jkube plugin to deploy:  
+### deployment
+JKube plugin is added to the POM [docs](https://www.eclipse.org/jkube/docs/openshift-maven-plugin)  
+You can use the following command to deploy on OpenShift (assuming you are logged in):  
 `mvn  install -Popenshift`
-
-### usage
 
 ## [Quarkus project](https://github.com/lucamaf/psychic-happiness/tree/main/rest-knative-weather)
 
 ### description
 
-### deployment on OpenShift
-using the serverless option in application.properties  
-`quarkus.kubernetes.deployment-target=knative`
-
-to deploy use:  
+### deployment
+Quarkus is quite easy to deploy on several platform, you can find more details on this [here](https://quarkus.io/guides/deploying-to-openshift)
+You can use the following command to deploy on OpenShift (please notice the serverless (*knative*) deployment parameter in the [application.properties](rest-knative-weather/src/main/resources/application.properties))
+To deploy on top of OpenShift you can use the following:  
 `mvn clean package -Dquarkus.kubernetes.deploy=true`
 
 ### usage
-
+_________
 # Second example
 
 ## flow
