@@ -86,8 +86,8 @@ You can use the following command to deploy on OpenShift (assuming you are logge
 ### description
 
 ### deployment
-Quarkus is quite easy to deploy on several platform, you can find more details on this [here](https://quarkus.io/guides/deploying-to-openshift)
-You can use the following command to deploy on OpenShift (please notice the serverless (*knative*) deployment parameter in the [application.properties](rest-knative-weather/src/main/resources/application.properties))
+Quarkus is quite easy to deploy on several platform, you can find more details on this [here](https://quarkus.io/guides/deploying-to-openshift)  
+You can use the following command to deploy on OpenShift (please notice the serverless (*knative*) deployment parameter in the [application.properties](rest-knative-weather/src/main/resources/application.properties))  
 To deploy on top of OpenShift you can use the following:  
 `mvn clean package -Dquarkus.kubernetes.deploy=true`
 
@@ -96,8 +96,8 @@ _________
 # Second example
 
 ## flow
-The second example is composed of a MongoDB database and a very simple GO [microservice](https://github.com/knative/eventing/blob/main/cmd/event_display/main.go).
-The following is the dependency workflow
+The second example is composed of a MongoDB database and a very simple GO [microservice](https://github.com/knative/eventing/blob/main/cmd/event_display/main.go).  
+The following is the dependency workflow  
 ```mermaid
   graph TB;
     A(MongoUI) -->|User adds a document| B[MongoDB]
@@ -115,7 +115,7 @@ The following is the dependency workflow
 
 ## MongoDB deployment
 In my case I installed MongoDB based on a Helm template from bitnami [here](https://github.com/bitnami/charts/tree/master/bitnami/mongodb)  
-the values I used in the chart are [here](config-resources/values.yaml)
+The values I used in the chart are [here](config-resources/values.yaml)  
 
 https://dev.to/tylerauerbeck/deploying-bitnami-s-postgres-helm-chart-on-openshift-1mcl
 
