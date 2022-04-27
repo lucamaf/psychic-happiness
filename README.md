@@ -96,24 +96,40 @@ _________
 # Second example
 
 ## flow
+The second example is composed of a MongoDB database and a very simple GO [microservice](https://github.com/knative/eventing/blob/main/cmd/event_display/main.go).
+The following is the dependency workflow
+```mermaid
+  graph TB;
+    A(MongoUI) -->|User adds a document| B[MongoDB]
+    B <--> |Kamelet MongoDB Source| C[Knative: Eventing]
+    C --> D[Knative: Serving]
+    D --> |Capture incoming Cloud Events| E(GO: logging)
+    style A fill:#f00
+    style B fill:#f00
+    style C fill:#ff0
+    style D fill:#ff0
+    style E fill:#0ff
+```
 
-## MongoDB events
-installed mongodb bitnami
+
+
+## MongoDB deployment
+In my case I installed MongoDB based on a Helm template from bitnami [here](https://github.com/bitnami/charts/tree/master/bitnami/mongodb)  
+the values I used in the chart are [here](config-resources/values.yaml)
+
 https://dev.to/tylerauerbeck/deploying-bitnami-s-postgres-helm-chart-on-openshift-1mcl
-https://github.com/bitnami/charts/tree/master/bitnami/mongodb
-with values from [here](config-resources/values.yaml)
+
 *the modification I introduced are related to securitycontext and are needed to deploy correctly on top of OpenShift*
 
-
-kamelet source mongodb
-https://camel.apache.org/camel-kamelets/0.7.x/mongodb-source.html
+## Kamelet MongoDB Source
+This serverless eventing source is based off this kamelet [component](https://camel.apache.org/camel-kamelets/0.7.x/mongodb-source.html)
 tracking id option working only with capped collection (https://www.mongodb.com/docs/manual/reference/glossary/#std-term-capped-collection)
 
-### usage
-leverage mongo-ui
 
-## Knative serving
+## Knative: Serving
 serving with event display
 
 ### usage
+Open mongo-ui interface
+leverage mongo-ui
 check the pod logs
