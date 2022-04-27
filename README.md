@@ -47,22 +47,32 @@ The first example is composed of a Fuse and a Quarkus microservice.
 The following is the dependency workflow
 ```mermaid
   graph TD;
-    A(Fuse: SwaggerUI) -->|User sends a request| B[Fuse: REST];
+    A(Fuse: SwaggerUI) -->|User sends a request| B[Fuse: REST]
     B --> C[Fuse: logging]
     C --> |Fuse prepares the msg| D[Fuse: to Kafka]
     D --> E(Kafka topic)
     F(Knative: KafkaSource) --> |notification to Eventing| E
+    F --> G(Knative: Broker)
+    G --> |channel - filtering| H(Knative:Trigger)
+    H --> I(Knative: Serving)
+    I --> L(Quarkus: REST)
+    L --> |calling external web service| M[Quarkus: REST client]
+    M --> |Quarkus reads the reply| N[Quarkus: to Kafka]
+    N --> E
     style A fill:#f00
     style B fill:#f00
     style C fill:#f00
     style D fill:#f00
     style E fill:#f80
     style F fill:#ff0
+    style G fill:#ff0
+    style H fill:#ff0
+    style I fill:#ff0
+    style L fill:#0f0
+    style M fill:#0f0
+    style N fill:#0f0
 ```
-    B --> C{Let me think};
-C -->|One| D[Laptop];
-    C -->|Two| E[iPhone];
-    C -->|Three| F[fa:fa-car Car];
+
 
 ### description
 
@@ -94,7 +104,7 @@ installed mongodb bitnami
 https://dev.to/tylerauerbeck/deploying-bitnami-s-postgres-helm-chart-on-openshift-1mcl
 https://github.com/bitnami/charts/tree/master/bitnami/mongodb
 with values from [here](config-resources/values.yaml)
-*the modification I introduced are related to securitycontext and are needed to deploy safely on top of OpenShift*
+*the modification I introduced are related to securitycontext and are needed to deploy correctly on top of OpenShift*
 
 
 kamelet source mongodb
